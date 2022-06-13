@@ -97,11 +97,10 @@ variable "fargate_memory" {
 
 variable "container_image" {
   type = string
-  
+
 }
 
 variable "environment" {
   type = any
-
 
 }

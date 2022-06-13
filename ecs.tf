@@ -42,8 +42,6 @@ resource "aws_alb_listener" "listener_http" {
 
 }
 
-
-
 resource "aws_ecs_service" "service_terraform" {
   name            = var.ecs_service_name
   cluster         = aws_ecs_cluster.fargate-cluster.id
@@ -63,5 +61,3 @@ resource "aws_ecs_service" "service_terraform" {
     target_group_arn = aws_alb_target_group.ecs_app_target_group.arn
   }
 }
-
-

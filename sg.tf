@@ -57,4 +57,3 @@ resource "aws_security_group" "sg_ecs_service_terraform" {
   }
 
 }
-
