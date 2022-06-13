@@ -113,7 +113,6 @@ resource "aws_route_table_association" "private-route-3-association" {
 
 resource "aws_eip" "elastic-ip-for-nat-gw" {
   vpc                       = true
-  associate_with_private_ip = "34.233.41.253"
 
   tags = {
     Name = "elastic-nat-${var.proj_name}"
@@ -130,7 +129,6 @@ resource "aws_nat_gateway" "nat-gw" {
     Name = "nat-${var.proj_name}"
   }
 
-  depends_on = [aws_eip.elastic-ip-for-nat-gw]
 }
 
 resource "aws_route" "nat-gw-route" {
