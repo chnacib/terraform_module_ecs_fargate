@@ -10,8 +10,6 @@ resource "aws_ecs_task_definition" "terraform-task-definition" {
     {
       name        = var.container_name
       image       = "${aws_ecr_repository.fargate.repository_url}"
-      cpu         = var.container_cpu
-      memory      = var.container_memory
       essential   = true
       environment = var.environment
       portMappings = [

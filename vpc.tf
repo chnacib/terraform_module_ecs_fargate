@@ -8,9 +8,10 @@ resource "aws_vpc" "terraform-vpc" {
 }
 
 resource "aws_subnet" "public-subnet-1" {
-  cidr_block        = var.public_subnet_1_cidr
-  vpc_id            = aws_vpc.terraform-vpc.id
-  availability_zone = "${var.region}a"
+  cidr_block              = var.public_subnet_1_cidr
+  vpc_id                  = aws_vpc.terraform-vpc.id
+  availability_zone       = "${var.region}a"
+  map_public_ip_on_launch = true
 
   tags = {
     Name = "SubNet-1a-pub-${var.proj_name}"
@@ -18,9 +19,10 @@ resource "aws_subnet" "public-subnet-1" {
 }
 
 resource "aws_subnet" "public-subnet-2" {
-  cidr_block        = var.public_subnet_2_cidr
-  vpc_id            = aws_vpc.terraform-vpc.id
-  availability_zone = "${var.region}c"
+  cidr_block              = var.public_subnet_2_cidr
+  vpc_id                  = aws_vpc.terraform-vpc.id
+  availability_zone       = "${var.region}c"
+  map_public_ip_on_launch = true
 
   tags = {
     Name = "SubNet-1c-pub-${var.proj_name}"
@@ -28,9 +30,10 @@ resource "aws_subnet" "public-subnet-2" {
 }
 
 resource "aws_subnet" "public-subnet-3" {
-  cidr_block        = var.public_subnet_3_cidr
-  vpc_id            = aws_vpc.terraform-vpc.id
-  availability_zone = "${var.region}b"
+  cidr_block              = var.public_subnet_3_cidr
+  vpc_id                  = aws_vpc.terraform-vpc.id
+  availability_zone       = "${var.region}b"
+  map_public_ip_on_launch = true
 
   tags = {
     Name = "SubNet-1b-pub-${var.proj_name}"
@@ -112,7 +115,7 @@ resource "aws_route_table_association" "private-route-3-association" {
 }
 
 resource "aws_eip" "elastic-ip-for-nat-gw" {
-  vpc                       = true
+  vpc = true
 
   tags = {
     Name = "elastic-nat-${var.proj_name}"
