@@ -27,8 +27,6 @@ module "ecs_fargate" {
   task_name             = "task-exemplo"
   container_name        = "container-exemplo"
   container_port        = 80
-  container_cpu         = 10
-  container_memory      = 128
   ecr_name              = "repository-exemplo"
   vpc_cidr              = "10.0.0.0/16"
   log_retention_days     = 7
