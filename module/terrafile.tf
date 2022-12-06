@@ -9,8 +9,6 @@ module "ecs_fargate" {
   ecs_cluster_name      = "cluster-exemplo"
   task_name             = "task-exemplo"
   container_name        = "container-exemplo"
-  container_port        = 80
-  container_cpu         = 10
   container_memory      = 128
   ecr_name              = "repository-exemplo"
   vpc_cidr              = "10.0.0.0/16"
